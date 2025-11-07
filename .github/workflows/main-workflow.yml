@@ -1,0 +1,19 @@
+name: Run
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: 
+          node-version: '24'
+
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Run
+        run: npm run start
